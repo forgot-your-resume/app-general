@@ -1,0 +1,37 @@
+# Register bricks which can be consumed via the Mason CLI.
+# Run "mason get" to install all registered bricks.
+# To learn more, visit https://docs.brickhub.dev.
+bricks:
+  # Bricks can be imported via version constraint from a registry.
+  # Uncomment the following line to import the "hello" brick from BrickHub.
+  # hello: 0.1.0+1
+  # Bricks can also be imported via remote git url.
+  # Uncomment the following lines to import the "widget" brick from git.
+  # widget:
+  #   git:
+  #     url: https://github.com/felangel/mason.git
+  #     path: bricks/widget
+    init_base:
+      git:
+        url: https://github.com/ValeryPonomarenko/f_bricks.git
+        path: init_base
+
+    use_case:
+      git:
+        url: https://github.com/ValeryPonomarenko/f_bricks.git
+        path: use_case
+
+    page:
+      git:
+        url: https://github.com/ValeryPonomarenko/f_bricks.git
+        path: page
+
+    repository:
+      git:
+        url: https://github.com/ValeryPonomarenko/f_bricks.git
+        path: repository
+
+    uikit:
+      git:
+        url: https://github.com/ValeryPonomarenko/f_bricks.git
+        path: uikit

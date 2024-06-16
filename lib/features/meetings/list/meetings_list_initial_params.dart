@@ -1,0 +1,3 @@
+class MeetingsListInitialParams {
+  const MeetingsListInitialParams();
+}

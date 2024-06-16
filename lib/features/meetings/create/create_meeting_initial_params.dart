@@ -1,0 +1,3 @@
+class CreateMeetingInitialParams {
+  const CreateMeetingInitialParams();
+}

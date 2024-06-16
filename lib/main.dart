@@ -4,7 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:forgot_your_resume/app.dart';
 import 'package:forgot_your_resume/core/data/dio/api_endpoints.dart';
+import 'package:forgot_your_resume/core/data/dio/auth_header_interceptor.dart';
 import 'package:forgot_your_resume/core/utils/logging.dart';
+import 'package:forgot_your_resume/features/auth/login/login_initial_params.dart';
+import 'package:forgot_your_resume/features/auth/login/login_page.dart';
+import 'package:forgot_your_resume/features/meetings/list/meetings_list_initial_params.dart';
+import 'package:forgot_your_resume/features/meetings/list/meetings_list_page.dart';
 
 bool _isUnitTests = false;
 
@@ -51,9 +56,12 @@ Future<void> main() async {
       // };
 
       runApp(
-        const App(
-          page: Text("Works"),
+        App(
+          page: isValidAuthToken
+              ? const MeetingsListPage(initialParams: MeetingsListInitialParams())
+              : const LoginPage(initialParams: LoginInitialParams()),
           beautyverseEndpoints: kReleaseMode ? ApiEndpoints.production : endpoint,
+          // sharedPreferences: await SharedPreferences.getInstance(),
         ),
       );
     },

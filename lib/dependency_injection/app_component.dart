@@ -1,9 +1,13 @@
 import 'package:forgot_your_resume/core/data/dio/auth_header_interceptor.dart';
 import 'package:forgot_your_resume/core/data/dio/dio_service.dart';
+import 'package:forgot_your_resume/features/auth/dependency_injection/feature_component.dart' as auth;
+import 'package:forgot_your_resume/features/meetings/dependency_injection/feature_component.dart' as meetings;
 //DO-NOT-REMOVE APP_COMPONENT_IMPORTS
 import 'package:forgot_your_resume/core/data/dio/api_endpoints.dart';
 import 'package:dio/dio.dart';
+import 'package:forgot_your_resume/navigation/app_navigator.dart';
 import 'package:get_it/get_it.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
@@ -15,10 +19,15 @@ T maybeGetIt<T extends Object>({required T Function() orElse}) {
 // ignore: long-method
 void configureDependencies(
   ApiEndpoints apiEndpoints,
+  // SharedPreferences sharedPreferences,
 ) {
+  auth.configureDependencies();
+  meetings.configureDependencies();
 //DO-NOT-REMOVE FEATURE_COMPONENT_INIT
 
-  _configureGeneralDependencies();
+  _configureGeneralDependencies(
+      // sharedPreferences,
+      );
   _configureRepositories();
   _configureStores();
   _configureUseCases();
@@ -27,8 +36,13 @@ void configureDependencies(
 }
 
 //ignore: long-method
-void _configureGeneralDependencies() {
-  getIt;
+void _configureGeneralDependencies(
+    // SharedPreferences sharedPreferences,
+    ) {
+  getIt..registerLazySingleton(() => AppNavigator())
+      // ..registerLazySingleton(() => sharedPreferences)
+      //
+      ;
 }
 
 //ignore: long-method

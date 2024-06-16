@@ -1,5 +1,5 @@
 enum ApiServices {
-  delete(endpoint: '/delete'),
+  all(endpoint: '/'),
   //
   ;
 

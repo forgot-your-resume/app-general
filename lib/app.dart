@@ -9,10 +9,12 @@ class App extends StatefulWidget {
     super.key,
     required this.page,
     required this.beautyverseEndpoints,
+    // required this.sharedPreferences,
   });
 
   final Widget page;
   final ApiEndpoints beautyverseEndpoints;
+  // final SharedPreferences sharedPreferences;
 
   @override
   State<App> createState() => _AppState();
@@ -23,6 +25,7 @@ class _AppState extends State<App> {
   void initState() {
     configureDependencies(
       widget.beautyverseEndpoints,
+      // widget.sharedPreferences,
     );
     super.initState();
   }

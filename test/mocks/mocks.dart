@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../features/auth/mocks/auth_mocks.dart';
+import '../features/meetings/mocks/meetings_mocks.dart';
 //DO-NOT-REMOVE IMPORTS_MOCKS
 
 import 'mock_definitions.dart';
@@ -22,6 +24,8 @@ class Mocks {
   //DO-NOT-REMOVE STORES_MOCKS_STATIC_FIELD
 
   static void init() {
+AuthMocks.init();
+MeetingsMocks.init();
 //DO-NOT-REMOVE FEATURE_MOCKS_INIT
 
     _initMocks();

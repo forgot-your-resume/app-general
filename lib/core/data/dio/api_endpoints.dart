@@ -6,8 +6,5 @@ enum ApiEndpoints {
 
   const ApiEndpoints();
 
-  String get endpoint => switch (this) {
-        ApiEndpoints.local => 'http://localhost:8080',
-        ApiEndpoints.production => 'https://api.beauty.versetech.app',
-      };
+  String get endpoint => 'https://hr.lakrica.xyz';
 }
